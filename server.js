@@ -2,10 +2,13 @@ const express = require('express')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const cors = require('cors')
+const mongoose = require('mongoose')
+const connectDB = require('./utils/db.js')
 
 require('dotenv').config()
 
 const server = express()
+connectDB()
 
 server.use(helmet())
 server.use(morgan('dev'))
