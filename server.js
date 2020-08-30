@@ -5,18 +5,23 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const connectDB = require('./utils/db.js')
 
+const ArticleRouter = require('./routes/articles.js')
+
 require('dotenv').config()
 
 const server = express()
 connectDB()
 
 server.use(helmet())
-server.use(morgan('dev'))
 server.use(cors())
+server.use(morgan('dev'))
+server.use(express.json())
 
 server.get('/', (req, res) => {
   res.send(`Server is runing on port ${PORT}`)
 })
+
+server.use('/articles', ArticleRouter)
 
 const PORT = process.env.PORT || 3333
 server.listen(PORT, () => {
