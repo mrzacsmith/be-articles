@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 
 const ArticleSchema = new mongoose.Schema(
   {
-    title: {},
-    article: {},
-    authorname: {},
+    title: { type: String, required: true, trim: true },
+    article: { type: String, required: true, trim: true },
+    authorname: { type: String, required: true, trim: true },
   },
   {
     timestamps: true,
