@@ -1,6 +1,7 @@
 const router = require('express').Router()
 
-// GET /test
+// @desc:   Test route to confirm server and route are running
+// @route:  GET /test
 router.get('/test', (req, res) => {
   res.send('Users test route is working ')
 })

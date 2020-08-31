@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const connectDB = require('./utils/db.js')
 
 const ArticleRouter = require('./routes/articles.js')
+const UserRouter = require('./routes/users.js')
 
 require('dotenv').config()
 
@@ -22,6 +23,7 @@ server.get('/', (req, res) => {
 })
 
 server.use('/articles', ArticleRouter)
+server.use('/users', UserRouter)
 
 const PORT = process.env.PORT || 3333
 server.listen(PORT, () => {

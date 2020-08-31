@@ -3,19 +3,22 @@ const { model } = require('../models/Article')
 const router = require('express').Router()
 const Article = require('../models/Article.js')
 
-// GET /test
+// @desc:   Test route to confirm server and route are running
+// @route:  GET /test
 router.get('/test', (req, res) => {
   res.send('Article test route is working')
 })
 
-// GET /
+// @desc:   get all articles
+// @route:  GET /
 router.get('/', (req, res) => {
   Article.find()
     .then((articles) => res.json(articles))
     .catch((err) => res.status(400).json('Error: ' + err))
 })
 
-// POST /add
+// @desc:   Add new articles
+// @route:  POST /add
 router.post('/add', (req, res) => {
   const newArticle = new Article({
     title: req.body.title,
@@ -29,14 +32,16 @@ router.post('/add', (req, res) => {
     .catch((err) => res.status(400).json('Error: ' + err))
 })
 
-// GET /:id
+// @desc:   Get article by id
+// @route:  GET /:id
 router.get('/:id', (req, res) => {
   Article.findById(req.params.id)
     .then((article) => res.json(article))
     .catch((err) => res.status(400).json('Error: ' + err))
 })
 
-// PUT /:id
+// @desc:   Modidy and update article
+// @route:  PUT /:id
 router.put('/:id', (req, res) => {
   Article.findByIdAndUpdate(req.params.id)
     .then((article) => {
@@ -52,7 +57,8 @@ router.put('/:id', (req, res) => {
     .catch((err) => res.status(400).json('Error: ' + err))
 })
 
-// DELETE /:id
+// @desc:   Delete article
+// @route:  DELETE /:id
 router.delete('/:id', (req, res) => {
   Article.findByIdAndDelete(req.params.id)
     .then(() => res.json('The article has been deleted'))
