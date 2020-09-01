@@ -15,6 +15,10 @@ const AddArticle = () => {
       authorname,
     }
 
+    setTitle('')
+    setArticle('')
+    setAuthorname('')
+
     axios
       .post('http://localhost:5775/articles/add', articles)
       .then((res) => console.log(res.data))
@@ -32,6 +36,7 @@ const AddArticle = () => {
             <label htmlFor="authorname">Author Name</label>
             <input
               type="text"
+              value={authorname}
               onChange={(e) => setAuthorname(e.target.value)}
               className="form-control"
               placeholder="author name"
@@ -41,6 +46,7 @@ const AddArticle = () => {
             <label htmlFor="title">Title</label>
             <input
               type="text"
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="form-control"
               id="title"
@@ -50,9 +56,11 @@ const AddArticle = () => {
           <div className="form-group">
             <label htmlFor="article">Article</label>
             <textarea
+              value={article}
               onChange={(e) => setArticle(e.target.value)}
               className="form-control"
               rows="3"
+              placeholder="enter your article here"
             ></textarea>
           </div>
 
