@@ -5,7 +5,7 @@ const Articles = ({ posts }) => {
   return (
     <ArticleContainer>
       {!posts.length ? (
-        <h1>Loading ... </h1>
+        <h1 className="loading">Loading ... </h1>
       ) : (
         posts.map((article, key) => (
           <div className="container">
@@ -38,4 +38,8 @@ export default Articles
 const ArticleContainer = styled.div`
   margin: 5rem 0;
   text-align: left;
+  .loading {
+    color: red;
+    text-align: center;
+  }
 `

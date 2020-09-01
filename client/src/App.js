@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/layouts/Header.jsx'
 import Navbar from './components/layouts/Navbar.jsx'
 import Footer from './components/layouts/Footer.jsx'
+import AddArticle from './components/layouts/AddArticle.jsx'
 import Articles from './components/Articles.jsx'
 import './App.css'
 
@@ -20,8 +21,8 @@ const App = () => {
     <div className="App">
       <Header />
       <Navbar />
-      <Route to="/" exact render={() => <Articles posts={posts} />} />
-
+      <Route path="/" exact render={() => <Articles posts={posts} />} />
+      <Route path="/add-article" component={AddArticle} />
       <Footer />
     </div>
   )
