@@ -10,6 +10,11 @@ const Articles = ({ posts }) => {
       ) : (
         posts.map((article, key) => (
           <div className="container" key={article._id}>
+            <Link
+              to={{
+                pathname: `/articles/${aricle._id}`,
+              }}
+            ></Link>
             <h2>{article.title}</h2>
             <p>{article.article}</p>
             <span className="badge badge-secondary p-2">

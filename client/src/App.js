@@ -7,6 +7,7 @@ import Navbar from './components/layouts/Navbar.jsx'
 import Footer from './components/layouts/Footer.jsx'
 import AddArticle from './components/layouts/AddArticle.jsx'
 import Articles from './components/Articles.jsx'
+import Article from './components/layouts/Article.jsx'
 import './App.css'
 
 const App = () => {
@@ -22,6 +23,10 @@ const App = () => {
       <Header />
       <Navbar />
       <Route path="/" exact render={() => <Articles posts={posts} />} />
+      <Route
+        path="/article/:id"
+        render={(props) => <Article {...props} posts={posts} />}
+      />
       <Route path="/add-article" component={AddArticle} />
       <Footer />
     </div>
